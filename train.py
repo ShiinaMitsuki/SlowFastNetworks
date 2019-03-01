@@ -197,8 +197,10 @@ def main():
                                           params['frame_sample_rate']) + "_checkpoint_" + str(epoch) + ".pth.tar")
             torch.save(model.module.state_dict(), checkpoint)
 
-    writer.close
+    writer.close()
 
 
 if __name__ == '__main__':
+    model = slowfastnet.resnet50(class_num=params['num_classes'])
+    print(model)
     main()
